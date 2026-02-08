@@ -14,9 +14,6 @@ $(document).ready(function () {
           .addClass("active");
       }
 
-      // $(".footer.fp-section").css("height", "100vh");
-      // $(".footer.fp-section .fp-tableCell").css("height", "100vh");
-
       if (index >= 7) {
         $("header, .navbar").stop().fadeOut(300);
       } else {
