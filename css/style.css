@@ -3077,6 +3077,10 @@ header nav > ul.main > li:hover ~ .indicator {
   }
 }
 @media (max-width: 960px) {
+  .fp-tableCell {
+    display: flex;
+    justify-content: center;
+  }
   .wrap {
     width: 100vw;
   }
