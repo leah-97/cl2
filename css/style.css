@@ -3197,11 +3197,10 @@ header nav > ul.main > li:hover ~ .indicator {
   /*con1 Left*/
   .con1Wrap ul {
     width: 100%;
-    margin: 20px 0px;
+    height: 32%;
   }
   .con1Wrap ul:first-child {
     width: 100%;
-    height: 30%;
     position: relative;
   }
   .con1Wrap ul:first-child li {
@@ -3261,7 +3260,7 @@ header nav > ul.main > li:hover ~ .indicator {
   /*버튼*/
   .con1Wrap .more {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 240px;
   }
   .con1Wrap .more .word {
@@ -3297,7 +3296,6 @@ header nav > ul.main > li:hover ~ .indicator {
   /*con1 Right*/
   .con1Wrap ul:nth-child(2) {
     width: 100%;
-    height: 20%;
     position: relative;
   }
   .con1Wrap ul:nth-child(2) li {
@@ -3309,7 +3307,7 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   .con1Wrap ul:nth-child(2) li img {
     width: 100%;
-    height: 100%;
+    height: 40%;
     object-fit: cover;
   }
   .con1Wrap ul:nth-child(2) li {
@@ -3552,6 +3550,7 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec4word > div > div {
     margin-left: 50px;
     transition: 1s;
+    margin-top: 0px;
   }
   .sec4word > div > div > span {
     color: #e67e22;
