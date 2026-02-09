@@ -3455,6 +3455,10 @@ header nav > ul.main > li:hover ~ .indicator {
     justify-content: center;
     align-items: center;
   }
+  .fp-tableCell .section3 {
+    height: 80dvh;
+  }
+
   /*sec3글씨*/
   .sec3word {
     position: absolute;
@@ -3487,7 +3491,7 @@ header nav > ul.main > li:hover ~ .indicator {
     display: none;
   }
   .map svg:last-child {
-    height: 100%;
+    height: 90%;
     width: 100%;
     display: block;
   }
@@ -3533,7 +3537,7 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 65%;
     display: flex;
     padding: 0% 1%;
-    margin-top: 10%;
+    margin-top: 0%;
     box-sizing: border-box;
     gap: 20px;
     align-items: flex-end !important;
@@ -3678,7 +3682,7 @@ header nav > ul.main > li:hover ~ .indicator {
     font-weight: bold;
   }
   .sec5word h2 {
-    font-size: 2rem;
+    font-size: 10vw;
     color: #222;
   }
   .sec5word .btn {
