@@ -3193,14 +3193,15 @@ header nav > ul.main > li:hover ~ .indicator {
     align-items: center;
     display: flex;
     padding: 0% 1%;
+    box-sizing: border-box;
   }
   /*con1 Left*/
   .con1Wrap ul {
     width: 100%;
-    height: 32%;
   }
   .con1Wrap ul:first-child {
     width: 100%;
+    flex: 0 0 50%;
     position: relative;
   }
   .con1Wrap ul:first-child li {
@@ -3260,17 +3261,17 @@ header nav > ul.main > li:hover ~ .indicator {
   /*버튼*/
   .con1Wrap .more {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     width: 240px;
   }
   .con1Wrap .more .word {
     font-size: 14px;
     width: 180px;
-    height: 35px;
+    height: 40px;
   }
   .con1Wrap .cir {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
   .word a {
     width: 100%;
@@ -3296,25 +3297,24 @@ header nav > ul.main > li:hover ~ .indicator {
   /*con1 Right*/
   .con1Wrap ul:nth-child(2) {
     width: 100%;
+    flex: 0 0 30%;
     position: relative;
   }
+
   .con1Wrap ul:nth-child(2) li {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .con1Wrap ul:nth-child(2) li img {
-    width: 100%;
-    height: 40%;
-    object-fit: cover;
-  }
-  .con1Wrap ul:nth-child(2) li {
+    height: 100% !important;
     display: none;
   }
+
   .con1Wrap ul:nth-child(2) li:first-child {
     display: block;
+  }
+
+  .con1Wrap ul:nth-child(2) li img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   /*con1 Bot 제품아이콘*/
 
@@ -3323,10 +3323,7 @@ header nav > ul.main > li:hover ~ .indicator {
     flex-wrap: wrap;
     gap: 10px;
     box-sizing: border-box;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    position: absolute;
+    flex: 0 0 20%;
     align-items: flex-end;
     justify-content: space-between;
     width: 90%;
@@ -3394,12 +3391,12 @@ header nav > ul.main > li:hover ~ .indicator {
 
   .item span {
     color: #b8afa3;
-    font-size: 5vw;
+    font-size: 3vw;
     transition: 1s;
   }
   .item h2 {
     color: #fff;
-    font-size: 7vw;
+    font-size: 6vw;
     margin: 5px 0px;
   }
   .item > div {
@@ -3409,12 +3406,12 @@ header nav > ul.main > li:hover ~ .indicator {
   .item > div > div {
     display: block;
     transition: 1s;
-    font-size: 4vw;
+    font-size: 3vw;
     color: #fff;
     margin: 10px 0px;
   }
   .item.on span {
-    font-size: 5vw;
+    font-size: 3vw;
     color: #b8afa3;
   }
   .item.on h2 {
