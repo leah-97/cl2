@@ -944,6 +944,7 @@ header nav > ul.main > li:hover ~ .indicator {
   border: 2px solid transparent;
   box-shadow: 0px 0px 15px 0px rgba(184, 175, 163, 0.3);
   transition: 1s;
+  display: block;
 }
 .sec5con .news li a,
 .sec5con .notice li a {
@@ -1003,12 +1004,12 @@ header nav > ul.main > li:hover ~ .indicator {
   height: 50px;
   display: flex;
   margin: 50px 0px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 /*line*/
 .section5 .line {
-  width: 95%;
+  width: 90%;
   height: 2px;
   background-color: #ececec;
 }
@@ -1863,12 +1864,14 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 320px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
   }
   .sec5con .news li,
   .sec5con .notice li {
-    width: 380px;
+    width: calc(25% - 15px);
     height: 320px;
+    display: block;
+    position: relative;
     padding: 2%;
     box-sizing: border-box;
     border-radius: 20px;
@@ -1934,12 +1937,12 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 50px;
     display: flex;
     margin: 50px 0px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   /*line*/
   .section5 .line {
-    width: 95%;
+    width: 90%;
     height: 2px;
     background-color: #ececec;
   }
@@ -2745,7 +2748,8 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con > div:nth-child(2) {
     position: relative;
     width: 90%;
-    height: 320px;
+    height: auto;
+    min-height: 680px;
     margin: 100px auto;
     transition: 1s;
     padding: 0% 1%;
@@ -2755,15 +2759,18 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con .news,
   .sec5con .notice {
     width: 100%;
-    height: 320px;
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
   }
   .sec5con .news li,
   .sec5con .notice li {
-    width: 380px;
+    width: calc(50% - 10px);
     height: 320px;
+    display: block;
+    position: relative;
     padding: 2%;
     box-sizing: border-box;
     border-radius: 20px;
@@ -2829,12 +2836,12 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 50px;
     display: flex;
     margin: 50px 0px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   /*line*/
   .section5 .line {
-    width: 95%;
+    width: 90%;
     height: 2px;
     background-color: #ececec;
   }
@@ -3644,7 +3651,7 @@ header nav > ul.main > li:hover ~ .indicator {
     gap: 10px;
     display: flex;
     position: absolute;
-    right: 1%;
+    right: 7%;
     top: 50%;
     transform: translateY(-50%);
     transition: 1s;
@@ -3667,7 +3674,7 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con > div:nth-child(2) {
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 70%;
     transition: 1s;
     padding: 0% 1%;
     margin: 0px 0px;
@@ -3681,10 +3688,11 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con .news,
   .sec5con .notice {
     width: 90%;
-    height: 80%;
+    height: 100%;
     overflow: hidden;
-    gap: 10px;
+    gap: 0;
     position: relative;
+    display: block;
   }
   .sec5con .news li,
   .sec5con .notice li {

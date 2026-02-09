@@ -270,49 +270,84 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".btn li").removeClass("on");
     $(this).addClass("on");
   });
+
   $(".btn li:first").click(function () {
-    $(".notice").hide();
-    $(".news").show();
+    $(".notice").css("display", "none").removeClass("active");
+    $(".news").css("display", "flex").addClass("active");
+    currentSlide = 0;
+    updateDisplay();
   });
+
   $(".btn li:last").click(function () {
-    $(".news").hide();
-    $(".notice").show();
+    $(".news").css("display", "none").removeClass("active");
+    $(".notice").css("display", "flex").addClass("active");
+    currentSlide = 0;
+    updateDisplay();
   });
 
   // sec5 뉴스/공지 슬라이드
   let currentSlide = 0;
 
+  function isMobile() {
+    return window.innerWidth <= 960;
+  }
+
+  function updateDisplay() {
+    let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
+    let inactiveList = $(".btn li.on").index() === 0 ? ".notice" : ".news";
+
+    // 비활성 리스트 완전히 숨김
+    $(inactiveList).css("display", "none");
+    $(inactiveList + " li").hide();
+
+    if (isMobile()) {
+      // 모바일: 슬라이드 방식
+      $(activeList).css("display", "block");
+      $(activeList + " li").hide();
+      $(activeList + " li")
+        .eq(currentSlide)
+        .show();
+    } else {
+      // 태블릿/데스크톱: 모두 표시
+      $(activeList).css("display", "flex");
+      $(activeList + " li").show();
+    }
+  }
+
   $(".btnBox .fa-chevron-right").click(function () {
-    let activeList = $(".btn li.on").index() === 0 ? $(".news") : $(".notice");
-    let totalItems = activeList.find("li").length;
+    if (!isMobile()) return;
+
+    let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
+    let totalItems = $(activeList + " li").length;
 
     if (currentSlide < totalItems - 1) {
       currentSlide++;
-      activeList.find("li").hide();
-      activeList.find("li").eq(currentSlide).fadeIn();
+      updateDisplay();
     }
   });
 
   $(".btnBox .fa-chevron-left").click(function () {
-    let activeList = $(".btn li.on").index() === 0 ? $(".news") : $(".notice");
+    if (!isMobile()) return;
 
     if (currentSlide > 0) {
       currentSlide--;
-      activeList.find("li").hide();
-      activeList.find("li").eq(currentSlide).fadeIn();
+      updateDisplay();
     }
   });
 
-  $(".btn li span").click(function () {
+  // 화면 크기 변경 시 재조정
+  $(window).resize(function () {
     currentSlide = 0;
-    $(".news li, .notice li").hide();
-    $(".news li").eq(0).show();
-    $(".notice li").eq(0).show();
+    updateDisplay();
   });
 
-  $(".news li").hide();
-  $(".news li").eq(0).show();
-  $(".notice li").hide();
+  // 초기 설정
+  $(document).ready(function () {
+    $(".news").addClass("active");
+    $(".btn li:first").addClass("on");
+    $(".notice").css("display", "none"); // 초기에 notice 숨김
+    updateDisplay();
+  });
 
   // 패밀리사이트
   $(".familysite span").click(function () {
