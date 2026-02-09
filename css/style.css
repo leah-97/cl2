@@ -3051,11 +3051,16 @@ header nav > ul.main > li:hover ~ .indicator {
   .navbar {
     display: none !important;
   }
-  .section {
+  .section1,
+  .section2,
+  .section3,
+  .section4,
+  .section5 {
     width: 100%;
     height: auto !important;
     max-height: 90dvh !important;
     box-sizing: border-box;
+    padding: 5% 0%;
   }
   /*sitemap*/
   .sitemap {
