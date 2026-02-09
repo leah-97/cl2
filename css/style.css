@@ -1628,6 +1628,9 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 100vh;
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
   /*sec3글씨*/
   .sec3word {
@@ -1713,12 +1716,12 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec4word {
     width: 100%;
     height: 65%;
-    display: flex;
     padding: 0% 2%;
     margin-top: 10%;
     box-sizing: border-box;
-    justify-content: space-between;
-    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
   /*왼쪽*/
   .sec4word > div {
@@ -1826,7 +1829,6 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con {
     width: 100%;
     height: 100%;
-    margin-top: 10%;
   }
   .sec5word {
     position: relative;
@@ -2530,6 +2532,9 @@ header nav > ul.main > li:hover ~ .indicator {
     height: 100vh;
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   /*sec3글씨*/
   .sec3word {
@@ -2613,11 +2618,11 @@ header nav > ul.main > li:hover ~ .indicator {
     width: 100%;
     height: 65%;
     display: flex;
+    justify-content: center;
     padding: 0% 1%;
-    margin-top: 10%;
     box-sizing: border-box;
     gap: 20px;
-    align-items: flex-end !important;
+    align-items: center;
   }
   /*왼쪽*/
   .sec4word > div {
@@ -2731,7 +2736,6 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con {
     width: 100%;
     height: 100%;
-    margin-top: 10%;
   }
   .sec5word {
     position: relative;
@@ -3305,6 +3309,9 @@ header nav > ul.main > li:hover ~ .indicator {
     width: 100%;
     height: 100% !important;
     display: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   .con1Wrap ul:nth-child(2) li:first-child {
