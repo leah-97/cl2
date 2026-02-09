@@ -3038,7 +3038,8 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   .section {
     width: 100%;
-    max-height: 80dvh;
+    height: auto !important;
+    max-height: 90dvh !important;
     box-sizing: border-box;
   }
   /*sitemap*/
@@ -3558,7 +3559,7 @@ header nav > ul.main > li:hover ~ .indicator {
     font-size: 3vw;
   }
   .sec4word .world li h3 {
-    font-size: 5vw;
+    font-size: 4vw;
   }
   /*오른쪽 이미지 박스*/
   .imgBox {
@@ -3621,7 +3622,7 @@ header nav > ul.main > li:hover ~ .indicator {
     width: 160px;
     display: flex;
     position: absolute;
-    right: 8%;
+    right: 1%;
     top: 50%;
     transform: translateY(-50%);
     transition: 1s;
@@ -3643,11 +3644,15 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   .sec5con > div:nth-child(2) {
     position: relative;
-    width: 90%;
-    height: 320px;
+    width: 100%;
+    height: 80%;
     transition: 1s;
     padding: 0% 1%;
     margin: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   /*news, notice*/
 
