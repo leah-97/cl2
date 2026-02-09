@@ -204,153 +204,166 @@ $(document).ready(function () {
       "margin-left": "0px",
     });
   });
-});
+  // 인디케이터
+  const mainMenu = document.querySelectorAll("header nav > ul.main > li");
+  const indicator = document.querySelector(".indicator");
 
-// 인디케이터
-const mainMenu = document.querySelectorAll("header nav > ul.main > li");
-const indicator = document.querySelector(".indicator");
-
-mainMenu.forEach((item) => {
-  item.addEventListener("mouseenter", function () {
-    const itemRect = this.getBoundingClientRect();
-    const navRect = this.closest("nav").getBoundingClientRect();
-    const itemCenter = itemRect.left - navRect.left + itemRect.width / 2;
-
-    indicator.style.left = itemCenter + "px";
-    indicator.style.opacity = "1";
-  });
-});
-
-document.querySelector("header").addEventListener("mouseleave", () => {
-  indicator.style.opacity = "0";
-});
-
-//sec2 hover
-document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll(".item");
-  const hover = document.querySelector(".hover");
-  const sec2con = document.querySelector(".sec2con");
-
-  items.forEach(function (item) {
+  mainMenu.forEach((item) => {
     item.addEventListener("mouseenter", function () {
-      const itemLeft = this.offsetLeft;
-      const itemTop = this.offsetTop;
+      const itemRect = this.getBoundingClientRect();
+      const navRect = this.closest("nav").getBoundingClientRect();
+      const itemCenter = itemRect.left - navRect.left + itemRect.width / 2;
 
-      items.forEach(function (otherItem) {
-        otherItem.classList.remove("on");
-      });
-
-      this.classList.add("on");
-      hover.classList.add("on");
-      hover.style.left = itemLeft + "px";
-      hover.style.top = itemTop + "px";
+      indicator.style.left = itemCenter + "px";
+      indicator.style.opacity = "1";
     });
   });
 
-  sec2con.addEventListener("mouseleave", function () {
+  document.querySelector("header").addEventListener("mouseleave", () => {
+    indicator.style.opacity = "0";
+  });
+
+  //sec2 hover
+  document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".item");
+    const hover = document.querySelector(".hover");
+    const sec2con = document.querySelector(".sec2con");
+
     items.forEach(function (item) {
-      item.classList.remove("on");
+      item.addEventListener("mouseenter", function () {
+        const itemLeft = this.offsetLeft;
+        const itemTop = this.offsetTop;
+
+        items.forEach(function (otherItem) {
+          otherItem.classList.remove("on");
+        });
+
+        this.classList.add("on");
+        hover.classList.add("on");
+        hover.style.left = itemLeft + "px";
+        hover.style.top = itemTop + "px";
+      });
     });
-    hover.classList.remove("on");
+
+    sec2con.addEventListener("mouseleave", function () {
+      items.forEach(function (item) {
+        item.classList.remove("on");
+      });
+      hover.classList.remove("on");
+    });
+
+    // sec4 월드맵 클릭
+    let con4Index = 1;
+    $(".sec4word .world li").click(function () {
+      con4Index = $(this).index();
+      $(".sec4word .world li").removeClass("active");
+      $(this).addClass("active");
+      $(".sec4word .info li").hide();
+      $(".sec4word .info li").eq(con4Index).show();
+      $(".sec4word .imgBox li").hide();
+      $(".sec4word .imgBox li").eq(con4Index).show();
+    });
+    //sec5
+    $(".btn li").click(function () {
+      $(".btn li").removeClass("on");
+      $(this).addClass("on");
+    });
+
+    $(".btn li:first").click(function () {
+      $(".notice").css("display", "none").removeClass("active");
+      $(".news").css("display", "flex").addClass("active");
+      currentSlide = 0;
+      updateDisplay();
+    });
+
+    $(".btn li:last").click(function () {
+      $(".news").css("display", "none").removeClass("active");
+      $(".notice").css("display", "flex").addClass("active");
+      currentSlide = 0;
+      updateDisplay();
+    });
+
+    // sec5 뉴스/공지 슬라이드
+    let currentSlide = 0;
+
+    function isMobile() {
+      return window.innerWidth <= 960;
+    }
+
+    function updateDisplay() {
+      let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
+      let inactiveList = $(".btn li.on").index() === 0 ? ".notice" : ".news";
+
+      // 비활성 리스트 완전히 숨김
+      $(inactiveList).css("display", "none");
+      $(inactiveList + " li").hide();
+
+      if (isMobile()) {
+        // 모바일: 슬라이드 방식
+        $(activeList).css("display", "block");
+        $(activeList + " li").hide();
+        $(activeList + " li")
+          .eq(currentSlide)
+          .show();
+      } else {
+        // 태블릿/데스크톱: 모두 표시
+        $(activeList).css("display", "flex");
+        $(activeList + " li").show();
+      }
+    }
+
+    $(".btnBox .fa-chevron-right").click(function () {
+      if (!isMobile()) return;
+
+      let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
+      let totalItems = $(activeList + " li").length;
+
+      if (currentSlide < totalItems - 1) {
+        currentSlide++;
+        updateDisplay();
+      }
+    });
+
+    $(".btnBox .fa-chevron-left").click(function () {
+      if (!isMobile()) return;
+
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateDisplay();
+      }
+    });
+
+    // 화면 크기 변경 시 재조정
+    $(window).resize(function () {
+      currentSlide = 0;
+      updateDisplay();
+    });
+
+    // 초기 설정
+    $(document).ready(function () {
+      $(".news").addClass("active");
+      $(".btn li:first").addClass("on");
+      $(".notice").css("display", "none"); // 초기에 notice 숨김
+      updateDisplay();
+    });
+
+    // 패밀리사이트
+    $(".familysite span").click(function () {
+      $(".sitelist").toggle();
+    });
   });
-
-  // sec4 월드맵 클릭
-  let con4Index = 1;
-  $(".sec4word .world li").click(function () {
-    con4Index = $(this).index();
-    $(".sec4word .world li").removeClass("active");
-    $(this).addClass("active");
-    $(".sec4word .info li").hide();
-    $(".sec4word .info li").eq(con4Index).show();
-    $(".sec4word .imgBox li").hide();
-    $(".sec4word .imgBox li").eq(con4Index).show();
-  });
-  //sec5
-  $(".btn li").click(function () {
-    $(".btn li").removeClass("on");
-    $(this).addClass("on");
-  });
-
-  $(".btn li:first").click(function () {
-    $(".notice").css("display", "none").removeClass("active");
-    $(".news").css("display", "flex").addClass("active");
-    currentSlide = 0;
-    updateDisplay();
-  });
-
-  $(".btn li:last").click(function () {
-    $(".news").css("display", "none").removeClass("active");
-    $(".notice").css("display", "flex").addClass("active");
-    currentSlide = 0;
-    updateDisplay();
-  });
-
-  // sec5 뉴스/공지 슬라이드
-  let currentSlide = 0;
-
-  function isMobile() {
-    return window.innerWidth <= 960;
-  }
-
-  function updateDisplay() {
-    let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
-    let inactiveList = $(".btn li.on").index() === 0 ? ".notice" : ".news";
-
-    // 비활성 리스트 완전히 숨김
-    $(inactiveList).css("display", "none");
-    $(inactiveList + " li").hide();
-
-    if (isMobile()) {
-      // 모바일: 슬라이드 방식
-      $(activeList).css("display", "block");
-      $(activeList + " li").hide();
-      $(activeList + " li")
-        .eq(currentSlide)
-        .show();
+  // 모바일에서 헤더 fixed 제거
+  function updateHeaderPosition() {
+    if (window.innerWidth <= 960) {
+      $("header").css("position", "absolute");
     } else {
-      // 태블릿/데스크톱: 모두 표시
-      $(activeList).css("display", "flex");
-      $(activeList + " li").show();
+      $("header").css("position", "fixed");
     }
   }
 
-  $(".btnBox .fa-chevron-right").click(function () {
-    if (!isMobile()) return;
+  updateHeaderPosition();
 
-    let activeList = $(".btn li.on").index() === 0 ? ".news" : ".notice";
-    let totalItems = $(activeList + " li").length;
-
-    if (currentSlide < totalItems - 1) {
-      currentSlide++;
-      updateDisplay();
-    }
-  });
-
-  $(".btnBox .fa-chevron-left").click(function () {
-    if (!isMobile()) return;
-
-    if (currentSlide > 0) {
-      currentSlide--;
-      updateDisplay();
-    }
-  });
-
-  // 화면 크기 변경 시 재조정
   $(window).resize(function () {
-    currentSlide = 0;
-    updateDisplay();
-  });
-
-  // 초기 설정
-  $(document).ready(function () {
-    $(".news").addClass("active");
-    $(".btn li:first").addClass("on");
-    $(".notice").css("display", "none"); // 초기에 notice 숨김
-    updateDisplay();
-  });
-
-  // 패밀리사이트
-  $(".familysite span").click(function () {
-    $(".sitelist").toggle();
+    updateHeaderPosition();
   });
 });
