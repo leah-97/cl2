@@ -5,6 +5,7 @@ $(document).ready(function () {
     scrollHorizontally: true,
     navigation: false,
     overflow: "visible",
+
     responsiveWidth: 1200,
     afterLoad: function (anchor, index) {
       $(".navbar li").removeClass("active");

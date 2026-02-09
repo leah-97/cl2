@@ -31,9 +31,7 @@ body,
 html {
   color: #666;
 }
-* {
-  outline: 1px solid red;
-}
+
 .wrap {
   position: relative;
   width: 100%;
@@ -41,9 +39,8 @@ html {
 #fullpage {
   overflow: hidden;
 }
-.section {
-  padding: 5% 0%;
-  box-sizing: border-box;
+* {
+  outline: 1px solid blueviolet;
 }
 /*header*/
 header {
@@ -3289,6 +3286,7 @@ header nav > ul.main > li:hover ~ .indicator {
     transform: translateX(-50%);
     position: absolute;
     align-items: flex-end;
+    justify-content: space-between;
     width: 90%;
   }
   .con1Wrap ul:nth-child(3) li {
@@ -3440,7 +3438,7 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   /*map*/
   .map {
-    width: 100%;
+    width: 95%;
     height: 100%;
     display: flex;
     justify-content: center;
