@@ -265,6 +265,54 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".sec4word .imgBox li").hide();
     $(".sec4word .imgBox li").eq(con4Index).show();
   });
+  //sec5
+  $(".btn li").click(function () {
+    $(".btn li").removeClass("on");
+    $(this).addClass("on");
+  });
+  $(".btn li:first").click(function () {
+    $(".notice").hide();
+    $(".news").show();
+  });
+  $(".btn li:last").click(function () {
+    $(".news").hide();
+    $(".notice").show();
+  });
+
+  // sec5 뉴스/공지 슬라이드
+  let currentSlide = 0;
+
+  $(".btnBox .fa-chevron-right").click(function () {
+    let activeList = $(".btn li.on").index() === 0 ? $(".news") : $(".notice");
+    let totalItems = activeList.find("li").length;
+
+    if (currentSlide < totalItems - 1) {
+      currentSlide++;
+      activeList.find("li").hide();
+      activeList.find("li").eq(currentSlide).fadeIn();
+    }
+  });
+
+  $(".btnBox .fa-chevron-left").click(function () {
+    let activeList = $(".btn li.on").index() === 0 ? $(".news") : $(".notice");
+
+    if (currentSlide > 0) {
+      currentSlide--;
+      activeList.find("li").hide();
+      activeList.find("li").eq(currentSlide).fadeIn();
+    }
+  });
+
+  $(".btn li span").click(function () {
+    currentSlide = 0;
+    $(".news li, .notice li").hide();
+    $(".news li").eq(0).show();
+    $(".notice li").eq(0).show();
+  });
+
+  $(".news li").hide();
+  $(".news li").eq(0).show();
+  $(".notice li").hide();
 
   // 패밀리사이트
   $(".familysite span").click(function () {
