@@ -31,9 +31,19 @@ body,
 html {
   color: #666;
 }
-
+* {
+  outline: 1px solid red;
+}
 .wrap {
   position: relative;
+  width: 100%;
+}
+#fullpage {
+  overflow: hidden;
+}
+.section {
+  padding: 5% 0%;
+  box-sizing: border-box;
 }
 /*header*/
 header {
@@ -42,7 +52,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0% 2%;
+  padding: 0% 1%;
   box-sizing: border-box;
   position: fixed;
   z-index: 100;
@@ -747,7 +757,7 @@ header nav > ul.main > li:hover ~ .indicator {
 }
 /*section4*/
 .section4 {
-  width: 97%;
+  width: 100%;
   height: 100vh;
   box-sizing: border-box;
 }
@@ -3030,6 +3040,15 @@ header nav > ul.main > li:hover ~ .indicator {
   }
 }
 @media (max-width: 960px) {
+  .wrap {
+    width: 100vw;
+  }
+  header {
+    width: 100% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+  }
   header .main {
     display: none;
   }
@@ -3054,7 +3073,7 @@ header nav > ul.main > li:hover ~ .indicator {
     display: none;
   }
   .sitemap > div {
-    width: 95%;
+    width: 90%;
     height: 90%;
     margin: 0px auto;
     padding: 5% 0%;
@@ -3062,10 +3081,9 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   .sitemap > svg {
     width: 50%;
-    transform: translateY(-15%);
-    position: absolute;
-    right: 0;
     fill: #f3970d;
+    position: absolute;
+    right: 5%;
   }
   /*사이트맵 제목, 버튼*/
   .sitemap > div > div {
@@ -3103,7 +3121,7 @@ header nav > ul.main > li:hover ~ .indicator {
     color: #fff;
   }
   .sitemapMain > li {
-    width: 100%;
+    width: 90%;
     border-left: 1px solid rgba(255, 255, 255, 0.15);
     padding-left: 30px;
   }
@@ -3291,7 +3309,7 @@ header nav > ul.main > li:hover ~ .indicator {
     font-size: 4vw;
   }
   .con1Wrap ul:nth-child(3) li.on {
-    height: 150px;
+    height: 75px;
   }
 
   .con1Wrap ul:nth-child(3) li img {
@@ -3658,10 +3676,8 @@ header nav > ul.main > li:hover ~ .indicator {
 
   .sec5con .news,
   .sec5con .notice {
-    width: 100%;
+    width: 90%;
     height: 80%;
-    display: flex;
-    justify-content: center;
     overflow: hidden;
     gap: 10px;
     position: relative;
@@ -3689,7 +3705,10 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con .notice li a {
     width: 100%;
     height: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .sec5con .news li a h4,
   .sec5con .notice li a h4 {
@@ -3730,8 +3749,14 @@ header nav > ul.main > li:hover ~ .indicator {
   .sec5con .news li a div,
   .sec5con .notice li a div {
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    align-self: flex-end;
     color: #888888;
+  }
+  .sec5con .news li a div span,
+  .sec5con .notice li a div span {
+    display: flex;
+    align-items: flex-end;
   }
   .sec5con .news li a div span img,
   .sec5con .notice li a div span img {
@@ -3739,16 +3764,15 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   /*btnBox*/
   .btnBox {
-    width: 100%;
+    width: 90%;
     height: 50px;
     display: flex;
-
     justify-content: space-between;
     align-items: center;
   }
   /*line*/
   .section5 .line {
-    width: 80%;
+    width: 65%;
     height: 2px;
     background-color: #ececec;
   }
@@ -3757,7 +3781,7 @@ header nav > ul.main > li:hover ~ .indicator {
     font-family: "xeicon";
   }
   .btnBox ul {
-    width: 5%;
+    width: 20%;
     height: 50px;
     display: flex;
     justify-content: center;
