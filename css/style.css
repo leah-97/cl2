@@ -39,9 +39,7 @@ html {
 #fullpage {
   overflow: hidden;
 }
-* {
-  outline: 1px solid blueviolet;
-}
+
 /*header*/
 header {
   width: 100%;
@@ -3421,7 +3419,7 @@ header nav > ul.main > li:hover ~ .indicator {
   /*sec3글씨*/
   .sec3word {
     position: absolute;
-    left: 2%;
+    left: 1%;
     top: 18%;
     transition: 1s;
     margin-left: 50px;
