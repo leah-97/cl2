@@ -3314,7 +3314,7 @@ header nav > ul.main > li:hover ~ .indicator {
   .con1Wrap ul:nth-child(2) li img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
   /*con1 Bot 제품아이콘*/
 
