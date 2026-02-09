@@ -3242,11 +3242,11 @@ header nav > ul.main > li:hover ~ .indicator {
   .con1Wrap ul:first-child li div span {
     color: #e67e22;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 4vw;
     margin-left: 10px;
   }
   .con1Wrap ul:first-child li div h2 {
-    font-size: 8vw;
+    font-size: 10vw;
     margin: 5px 0px;
     margin-left: 10px;
     color: #222;
@@ -3476,11 +3476,11 @@ header nav > ul.main > li:hover ~ .indicator {
   }
   .sec3word span {
     color: #e67e22;
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: bold;
   }
   .sec3word h2 {
-    font-size: 8vw;
+    font-size: 10vw;
     margin-top: 10px;
     color: #222;
   }
